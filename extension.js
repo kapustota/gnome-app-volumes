@@ -46,9 +46,19 @@ class AppVolumeItem extends PopupMenu.PopupBaseMenuItem {
         this.slider.y_align = Clutter.ActorAlign.CENTER;
         this.add_child(this.slider);
 
-        this._changedId = this.slider.connect('notify::value', () => onChanged(this));
-        this.slider.connect('drag-begin', () => (this.dragging = true));
-        this.slider.connect('drag-end', () => (this.dragging = false));
+        this._updating = false;
+        this.slider.connectObject(
+            'notify::value', () => {
+                if (!this._updating)
+                    onChanged(this);
+            },
+            'drag-begin', () => {
+                this.dragging = true;
+            },
+            'drag-end', () => {
+                this.dragging = false;
+            },
+            this);
     }
 
     update(row) {
@@ -61,9 +71,9 @@ class AppVolumeItem extends PopupMenu.PopupBaseMenuItem {
             this._icon.icon_name = 'application-x-executable-symbolic';
 
         if (!this.dragging) {
-            this.slider.block_signal_handler(this._changedId);
+            this._updating = true;
             this.slider.value = row.level;
-            this.slider.unblock_signal_handler(this._changedId);
+            this._updating = false;
         }
     }
 });
@@ -121,6 +131,7 @@ export default class AppVolumesExtension extends Extension {
 
         this._injections.clear();
         this._outputSlider?._sync();
+        this._appsSection?.destroy();
         this._section?.destroy();
 
         this._settings = null;
