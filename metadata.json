@@ -1,0 +1,17 @@
+{
+  "uuid": "app-volumes@kapustota.github.io",
+  "name": "App Volumes",
+  "description": "Volume sliders for every running application, including apps that are silent right now, like the Windows volume mixer. Open them with the arrow next to the volume slider in Quick Settings. A volume set for a silent app applies to its next sound, such as the next notification. Requires PipeWire with WirePlumber.",
+  "url": "https://github.com/kapustota/gnome-app-volumes",
+  "settings-schema": "org.gnome.shell.extensions.app-volumes",
+  "gettext-domain": "app-volumes@kapustota.github.io",
+  "shell-version": [
+    "45",
+    "46",
+    "47",
+    "48",
+    "49",
+    "50",
+    "51"
+  ]
+}

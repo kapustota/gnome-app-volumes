@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist>
+  <schema id="org.gnome.shell.extensions.app-volumes"
+          path="/org/gnome/shell/extensions/app-volumes/">
+    <key name="pending-volumes" type="a{sd}">
+      <default>{}</default>
+      <summary>Volumes waiting for an application's next sound</summary>
+      <description>Levels (0 to 1) chosen for silent applications, keyed by application name. Each is applied when the application starts its next stream; WirePlumber then remembers it.</description>
+    </key>
+  </schema>
+</schemalist>
