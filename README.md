@@ -4,6 +4,11 @@ A GNOME Shell extension that adds per-application volume sliders to Quick
 Settings — including applications that are running but silent right now,
 much like the Windows volume mixer.
 
+<img src="screenshots/menu.png" width="414" alt="The Sound Output menu in Quick Settings with an Applications section: volume sliders for Discord, Firefox, Spotify and Telegram">
+
+Discord and Telegram are silent in this screenshot; Firefox and Spotify are
+playing.
+
 ## Why
 
 GNOME Settings, the Quick Settings menu and pavucontrol list an application
